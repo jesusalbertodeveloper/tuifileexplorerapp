@@ -1,0 +1,8 @@
+This is a Terminal User Interface(TUI) file explorer app for Linux that allows you to view and manage files from your terminal.
+It can do basic file management operations(copy,move,delete,rename,create new folder,etc)
+This file explorer has an unique feature:Previewing the content of text files and zip files on a box in the bottom of the screen without needing to open these files
+The content can be previewed just by having the file highlighted in the app so no need to open but it can open text files in nano when you press Enter in the file and you can return to the file explorer by closing nano with Ctrl+X.This will give you the option to save any changes to the file before returning.
+The left pane will show you your storage partitions in all connected storage devices and the right one will show you your files.Use the arrow keys on your keyboard to move between them.
+In the sourcecode folder is the app's source code in C++ while in the compiledbinary is a compiled Linux amd64(x64) binary.
+NOTE:In Linux x64 is called amd64 even if you have an Intel processor
+Made in Linux Mint 21.3 Cinnamon

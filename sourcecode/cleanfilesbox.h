@@ -1,0 +1,6 @@
+#ifndef CLEANFILESBOX_H_INCLUDED
+#define CLEANFILESBOX_H_INCLUDED
+
+int cleanfilesbox();
+
+#endif // CLEANFILESBOX_H_INCLUDED

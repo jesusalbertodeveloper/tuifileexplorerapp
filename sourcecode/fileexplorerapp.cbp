@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="fileexplorerapp" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/fileexplorerapp" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="/home/jesus/Desktop/C++ Calculator/fileexplorerapp/fileexplorerapp/" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/fileexplorerapp" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add directory="/home/jesus/Desktop/C++ Calculator/fileexplorerapp/fileexplorerapp/" />
+		</Compiler>
+		<Unit filename="cleandrivesbox.cpp" />
+		<Unit filename="cleandrivesbox.h" />
+		<Unit filename="cleanfilesbox.cpp" />
+		<Unit filename="cleanfilesbox.h" />
+		<Unit filename="cleanpreviewbox.cpp" />
+		<Unit filename="cleanpreviewbox.h" />
+		<Unit filename="cleanscrollbarfordrivesbox.cpp" />
+		<Unit filename="cleanscrollbarfordrivesbox.h" />
+		<Unit filename="cleanscrollbarforfilesbox.cpp" />
+		<Unit filename="cleanscrollbarforfilesbox.h" />
+		<Unit filename="displayfiles.cpp" />
+		<Unit filename="displayfiles.h" />
+		<Unit filename="drawdrivesbox.cpp" />
+		<Unit filename="drawdrivesbox.h" />
+		<Unit filename="drawfilesbox.cpp" />
+		<Unit filename="drawfilesbox.h" />
+		<Unit filename="drawpreviewbox.cpp" />
+		<Unit filename="drawpreviewbox.h" />
+		<Unit filename="drawscrollbarfordrivesbox.cpp" />
+		<Unit filename="drawscrollbarfordrivesbox.h" />
+		<Unit filename="drawscrollbarforfilesbox.cpp" />
+		<Unit filename="drawscrollbarforfilesbox.h" />
+		<Unit filename="filenamehighlight.cpp" />
+		<Unit filename="filenamehighlight.h" />
+		<Unit filename="getfiledata.cpp" />
+		<Unit filename="getfiledata.h" />
+		<Unit filename="getmounteddrives.cpp" />
+		<Unit filename="getmounteddrives.h" />
+		<Unit filename="keypressdetection.cpp" />
+		<Unit filename="keypressdetection.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="main.h" />
+		<Unit filename="menubar.cpp" />
+		<Unit filename="menubar.h" />
+		<Unit filename="newnameforcopyandmove.cpp" />
+		<Unit filename="newnameforcopyandmove.h" />
+		<Unit filename="showcopyfileanddirectorydialogs.cpp" />
+		<Unit filename="showcopyfileanddirectorydialogs.h" />
+		<Unit filename="showdeletefileanddirectorydialogs.cpp" />
+		<Unit filename="showdeletefileanddirectorydialogs.h" />
+		<Unit filename="showmovefileanddirectorydialogs.cpp" />
+		<Unit filename="showmovefileanddirectorydialogs.h" />
+		<Unit filename="shownewdirectorydialog.cpp" />
+		<Unit filename="shownewdirectorydialog.h" />
+		<Unit filename="showrenamedialog.cpp" />
+		<Unit filename="showrenamedialog.h" />
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>

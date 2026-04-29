@@ -1,0 +1,714 @@
+#include <iostream>
+#include <stdio.h>
+#include <vector>
+#include <dirent.h>
+#include <cstring>
+#include <sys/ioctl.h>
+#include <unistd.h>
+#include <string>
+#include <termios.h>
+#include <linux/sockios.h>
+#include <linux/input.h>
+#include <linux/inotify.h>
+#include <cstdlib>
+#include <time.h>
+#include <fstream>
+#include <filesystem>
+#include <csignal>
+#define FIONREAD	0x541B
+#include <main.h>
+#include <displayfiles.h>
+#include <filenamehighlight.h>
+#include <drawdrivesbox.h>
+#include <drawfilesbox.h>
+#include <drawpreviewbox.h>
+#include <cleandrivesbox.h>
+//#include <cleanfilesbox.h>
+#include <menubar.h>
+#include <drawscrollbarfordrivesbox.h>
+#include <cleanscrollbarfordrivesbox.h>
+#include <drawscrollbarforfilesbox.h>
+#include <cleanscrollbarforfilesbox.h>
+#include <getmounteddrives.h>
+#include <getfiledata.h>
+#include <cleanfilesbox.h>
+#include <cleanpreviewbox.h>
+#include <drawfilesbox.h>
+#include <main.h>
+#include <keypressdetection.h>
+int showdeletefiledialog () {
+extern bool deletefiledialogmode;
+extern bool copydirectoryoverwritedialogmode;
+extern bool copyfileoverwritedialogmode;
+//if (!std::filesystem::is_directory(filenamelistings[filenamelistingscount].filename)) {
+//std::cout << "Are you sure you want to permanently delete the file " << filenamelistings[filenamelistingscount].filename << "?" << std::endl;
+//std::cout << "Keep in mind that the file will likely be recoverable later with data recovery tools.If you want a secure erasure better use a different tool that does a secure erasure instead of just deleting the file through here or through a different file manager" << std::endl;
+//char answer = getchar();
+//if (toupper(answer) == 'Y') {
+//std::filesystem::remove(filenamelistings[filenamelistingscount].filename);
+//filenamelistingscount = 0;
+//fileanddircount = 0;
+//countformovingdowninfilesbox = 0;
+//scrolldownsinfilesbox = 0;
+//drawingoffilesboxdone = false;
+//ycoordinate = 2;
+//cleanfilesbox();
+//filenamelistings.clear();
+//readfilenames("codeforrefresh");
+//drawfilesbox(0,0,0,1);
+setBackgroundColor(1);
+printacharacterinanyterminallocation(6,10,"┌");
+printacharacterinanyterminallocation(7,10,"│");
+printacharacterinanyterminallocation(8,10,"│");
+printacharacterinanyterminallocation(9,10,"│");
+printacharacterinanyterminallocation(10,10,"│");
+printacharacterinanyterminallocation(11,10,"│");
+printacharacterinanyterminallocation(12,10,"│");
+printacharacterinanyterminallocation(13,10,"│");
+printacharacterinanyterminallocation(14,10,"│");
+printacharacterinanyterminallocation(15,10,"│");
+printacharacterinanyterminallocation(16,10,"│");
+printacharacterinanyterminallocation(17,10,"│");
+printacharacterinanyterminallocation(18,10,"│");
+printacharacterinanyterminallocation(19,10,"└");
+printacharacterinanyterminallocation(6,11,"─");
+printacharacterinanyterminallocation(6,12,"─");
+printacharacterinanyterminallocation(6,13,"─");
+printacharacterinanyterminallocation(6,14,"─");
+printacharacterinanyterminallocation(6,15,"─");
+printacharacterinanyterminallocation(6,16,"─");
+printacharacterinanyterminallocation(6,17,"─");
+printacharacterinanyterminallocation(6,18,"─");
+printacharacterinanyterminallocation(6,19,"─");
+printacharacterinanyterminallocation(6,20,"─");
+printacharacterinanyterminallocation(6,21,"─");
+printacharacterinanyterminallocation(6,22,"─");
+printacharacterinanyterminallocation(6,23,"─");
+printacharacterinanyterminallocation(6,24,"─");
+printacharacterinanyterminallocation(6,25,"─");
+printacharacterinanyterminallocation(6,26,"─");
+printacharacterinanyterminallocation(6,27,"─");
+printacharacterinanyterminallocation(6,28,"─");
+//printacharacterinanyterminallocation(6,28," ");
+printacharacterinanyterminallocation(6,29,"─");
+printacharacterinanyterminallocation(6,30,"─");
+printacharacterinanyterminallocation(6,31,"─");
+printacharacterinanyterminallocation(6,32,"─");
+printacharacterinanyterminallocation(6,33,"─");
+printacharacterinanyterminallocation(6,34,"─");
+printacharacterinanyterminallocation(6,35,"D");
+printacharacterinanyterminallocation(6,36,"e");
+printacharacterinanyterminallocation(6,37,"l");
+printacharacterinanyterminallocation(6,38,"e");
+printacharacterinanyterminallocation(6,39,"t");
+printacharacterinanyterminallocation(6,40,"e");
+printacharacterinanyterminallocation(6,41," ");
+printacharacterinanyterminallocation(6,42,"f");
+printacharacterinanyterminallocation(6,43,"i");
+printacharacterinanyterminallocation(6,44,"l");
+printacharacterinanyterminallocation(6,45,"e");
+printacharacterinanyterminallocation(6,46,"?");
+//printacharacterinanyterminallocation(6,47,"?");
+for (int colummn = 47;colummn < 70;colummn++) {
+printacharacterinanyterminallocation(6,colummn,"─");
+}
+printacharacterinanyterminallocation(6,70,"┐");
+printacharacterinanyterminallocation(7,70,"│");
+printacharacterinanyterminallocation(8,70,"│");
+printacharacterinanyterminallocation(9,70,"│");
+printacharacterinanyterminallocation(10,70,"│");
+printacharacterinanyterminallocation(11,70,"│");
+printacharacterinanyterminallocation(12,70,"│");
+printacharacterinanyterminallocation(13,70,"│");
+printacharacterinanyterminallocation(14,70,"│");
+printacharacterinanyterminallocation(15,70,"│");
+printacharacterinanyterminallocation(16,70,"│");
+printacharacterinanyterminallocation(17,70,"│");
+printacharacterinanyterminallocation(18,70,"│");
+printacharacterinanyterminallocation(19,70,"┘");
+printacharacterinanyterminallocation(19,10,"└");
+std::cout << "The first " << "5" << " characters are: " << filenamelistings[filenamelistingscount].filename.substr(0, 5) << std::endl;
+for (int colummn = 11;colummn < 70;colummn++) {
+printacharacterinanyterminallocation(19,colummn,"─");
+}
+movecursortoanyterminallocation(7,11);
+if (filenamelistings[filenamelistingscount].filename.size() == 10) {
+std::cout << "Are you sure you want to delete the file " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "?";
+printacharacterinanyterminallocation(7,63," ");
+printacharacterinanyterminallocation(7,64," ");
+printacharacterinanyterminallocation(7,65," ");
+printacharacterinanyterminallocation(7,66," ");
+printacharacterinanyterminallocation(7,67," ");
+printacharacterinanyterminallocation(7,68," ");
+printacharacterinanyterminallocation(7,69," ");
+}
+else if (filenamelistings[filenamelistingscount].filename.size() == 9) {
+std::cout << "Are you sure you want to delete the file " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "?";
+printacharacterinanyterminallocation(7,64," ");
+printacharacterinanyterminallocation(7,65," ");
+printacharacterinanyterminallocation(7,66," ");
+printacharacterinanyterminallocation(7,67," ");
+printacharacterinanyterminallocation(7,68," ");
+printacharacterinanyterminallocation(7,69," ");
+}
+else if (filenamelistings[filenamelistingscount].filename.size() == 8) {
+std::cout << "Are you sure you want to delete the file " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "?" << "";
+//printacharacterinanyterminallocation(7,59," ");
+//printacharacterinanyterminallocation(7,60," ");
+//printacharacterinanyterminallocation(7,61," ");
+//printacharacterinanyterminallocation(7,62," ");
+//printacharacterinanyterminallocation(7,63," ");
+//printacharacterinanyterminallocation(7,64," ");
+//printacharacterinanyterminallocation(7,65," ");
+//printacharacterinanyterminallocation(7,66," ");
+//printacharacterinanyterminallocation(7,67," ");
+//printacharacterinanyterminallocation(7,68," ");
+printacharacterinanyterminallocation(7,69," ");
+}
+else if (filenamelistings[filenamelistingscount].filename.size() == 7) {
+std::cout << "Are you sure you want to delete the file " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "?";
+//printacharacterinanyterminallocation(7,58," ");
+//printacharacterinanyterminallocation(7,59," ");
+printacharacterinanyterminallocation(7,60," ");
+printacharacterinanyterminallocation(7,61," ");
+printacharacterinanyterminallocation(7,62," ");
+printacharacterinanyterminallocation(7,63," ");
+printacharacterinanyterminallocation(7,64," ");
+printacharacterinanyterminallocation(7,65," ");
+printacharacterinanyterminallocation(7,66," ");
+printacharacterinanyterminallocation(7,67," ");
+printacharacterinanyterminallocation(7,68," ");
+printacharacterinanyterminallocation(7,69," ");
+}
+else if (filenamelistings[filenamelistingscount].filename.size() == 6) {
+std::cout << "Are you sure you want to delete the file " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "?";
+//printacharacterinanyterminallocation(7,58," ");
+printacharacterinanyterminallocation(7,59," ");
+printacharacterinanyterminallocation(7,60," ");
+printacharacterinanyterminallocation(7,61," ");
+printacharacterinanyterminallocation(7,62," ");
+printacharacterinanyterminallocation(7,63," ");
+printacharacterinanyterminallocation(7,64," ");
+printacharacterinanyterminallocation(7,65," ");
+printacharacterinanyterminallocation(7,66," ");
+printacharacterinanyterminallocation(7,67," ");
+printacharacterinanyterminallocation(7,68," ");
+printacharacterinanyterminallocation(7,69," ");
+}
+else if (filenamelistings[filenamelistingscount].filename.size() == 5) {
+std::cout << "Are you sure you want to delete the file " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "?";
+printacharacterinanyterminallocation(7,58," ");
+printacharacterinanyterminallocation(7,59," ");
+printacharacterinanyterminallocation(7,60," ");
+printacharacterinanyterminallocation(7,61," ");
+printacharacterinanyterminallocation(7,62," ");
+printacharacterinanyterminallocation(7,63," ");
+printacharacterinanyterminallocation(7,64," ");
+printacharacterinanyterminallocation(7,65," ");
+printacharacterinanyterminallocation(7,66," ");
+printacharacterinanyterminallocation(7,67," ");
+printacharacterinanyterminallocation(7,68," ");
+printacharacterinanyterminallocation(7,69," ");
+}
+else if (filenamelistings[filenamelistingscount].filename.size() == 4) {
+std::cout << "Are you sure you want to delete the file " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "?";
+printacharacterinanyterminallocation(7,57," ");
+printacharacterinanyterminallocation(7,58," ");
+printacharacterinanyterminallocation(7,59," ");
+printacharacterinanyterminallocation(7,60," ");
+printacharacterinanyterminallocation(7,61," ");
+printacharacterinanyterminallocation(7,62," ");
+printacharacterinanyterminallocation(7,63," ");
+printacharacterinanyterminallocation(7,64," ");
+printacharacterinanyterminallocation(7,65," ");
+printacharacterinanyterminallocation(7,66," ");
+printacharacterinanyterminallocation(7,67," ");
+printacharacterinanyterminallocation(7,68," ");
+printacharacterinanyterminallocation(7,69," ");
+}
+else if (filenamelistings[filenamelistingscount].filename.size() == 3) {
+std::cout << "Are you sure you want to delete the file " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "?";
+printacharacterinanyterminallocation(7,56," ");
+printacharacterinanyterminallocation(7,57," ");
+printacharacterinanyterminallocation(7,58," ");
+printacharacterinanyterminallocation(7,59," ");
+printacharacterinanyterminallocation(7,60," ");
+printacharacterinanyterminallocation(7,61," ");
+printacharacterinanyterminallocation(7,62," ");
+printacharacterinanyterminallocation(7,63," ");
+printacharacterinanyterminallocation(7,64," ");
+printacharacterinanyterminallocation(7,65," ");
+printacharacterinanyterminallocation(7,66," ");
+printacharacterinanyterminallocation(7,67," ");
+printacharacterinanyterminallocation(7,68," ");
+printacharacterinanyterminallocation(7,69," ");
+}
+else if (filenamelistings[filenamelistingscount].filename.size() == 2) {
+std::cout << "Are you sure you want to delete the file " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "?";
+printacharacterinanyterminallocation(7,55," ");
+printacharacterinanyterminallocation(7,56," ");
+printacharacterinanyterminallocation(7,57," ");
+printacharacterinanyterminallocation(7,58," ");
+printacharacterinanyterminallocation(7,59," ");
+printacharacterinanyterminallocation(7,60," ");
+printacharacterinanyterminallocation(7,61," ");
+printacharacterinanyterminallocation(7,62," ");
+printacharacterinanyterminallocation(7,63," ");
+printacharacterinanyterminallocation(7,64," ");
+printacharacterinanyterminallocation(7,65," ");
+printacharacterinanyterminallocation(7,66," ");
+printacharacterinanyterminallocation(7,67," ");
+printacharacterinanyterminallocation(7,68," ");
+printacharacterinanyterminallocation(7,69," ");
+}
+else if (filenamelistings[filenamelistingscount].filename.size() == 1) {
+std::cout << "Are you sure you want to delete the file " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "?";
+printacharacterinanyterminallocation(7,54," ");
+printacharacterinanyterminallocation(7,55," ");
+printacharacterinanyterminallocation(7,56," ");
+printacharacterinanyterminallocation(7,57," ");
+printacharacterinanyterminallocation(7,58," ");
+printacharacterinanyterminallocation(7,59," ");
+printacharacterinanyterminallocation(7,60," ");
+printacharacterinanyterminallocation(7,61," ");
+printacharacterinanyterminallocation(7,62," ");
+printacharacterinanyterminallocation(7,63," ");
+printacharacterinanyterminallocation(7,64," ");
+printacharacterinanyterminallocation(7,65," ");
+printacharacterinanyterminallocation(7,66," ");
+printacharacterinanyterminallocation(7,67," ");
+printacharacterinanyterminallocation(7,68," ");
+printacharacterinanyterminallocation(7,69," ");
+}
+else {
+std::cout << "Are you sure you want to delete the file " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "..." << "?" << "    ";
+}
+movecursortoanyterminallocation(8,11);
+std::cout << "Keep in mind that this is permanent and can't be easily";
+printacharacterinanyterminallocation(8,66," ");
+printacharacterinanyterminallocation(8,67," ");
+printacharacterinanyterminallocation(8,68," ");
+printacharacterinanyterminallocation(8,69," ");
+movecursortoanyterminallocation(9,11);
+std::cout << "undone (no recycle bin in this file manager)               ";
+movecursortoanyterminallocation(10,11);
+std::cout << "However the data will likely still be recoverable later    ";
+movecursortoanyterminallocation(11,11);
+std::cout << "with data recovery software.So if you want a secure erasure";
+movecursortoanyterminallocation(12,11);
+std::cout << "use a different tool that does a secure erasure (such as   ";
+movecursortoanyterminallocation(13,11);
+std::cout << "the shred command line utility that comes preinstalled in  ";
+movecursortoanyterminallocation(14,11);
+std::cout << "many Linux distributions (such as Linux Mint) instead of   ";
+movecursortoanyterminallocation(15,11);
+std::cout << "just deleting the file through here or any other file      ";
+movecursortoanyterminallocation(16,11);
+std::cout << "manager                                                    ";
+movecursortoanyterminallocation(17,11);
+std::cout << "                                                           ";
+movecursortoanyterminallocation(18,11);
+std::cout << "                   ";
+movecursortoanyterminallocation(18,11);
+std::cout << "                   ";
+movecursortoanyterminallocation(18,37);
+std::cout << "                                 ";
+printacharacterinanyterminallocation(18,30,"Y");
+printacharacterinanyterminallocation(18,31,"e");
+printacharacterinanyterminallocation(18,32,"s");
+printacharacterinanyterminallocation(18,33," ");
+printacharacterinanyterminallocation(18,34," ");
+printacharacterinanyterminallocation(18,35," ");
+printacharacterinanyterminallocation(18,36," ");
+setBackgroundColor(3);
+printacharacterinanyterminallocation(18,37,"N");
+printacharacterinanyterminallocation(18,38,"o");
+setBackgroundColor(1);
+//std::cout << "The first " << "5" << " characters are: " << filenamelistings[filenamelistingscount].filename.substr(0, 5) << std::endl;
+putchar('\n');
+//printacharacterinanyterminallocation(6,70,"┌");
+}
+int showdeletedirectorydialog () {
+bool deletedirectorydialogmode = true;
+//std::cout << "Are you sure you want to permanently delete the directory " << filenamelistings[filenamelistingscount].filename << "?" << std::endl;
+//std::cout << "Keep in mind that the directory and its data will likely be recoverable later with data recovery tools.If you want a secure erasure better use a different tool that does a secure erasure instead of just deleting the directory through here or through a different file manager" << std::endl;
+//char answer = getchar();
+//if (toupper(answer) == 'Y') {
+//std::filesystem::remove_all(filenamelistings[filenamelistingscount].filename);
+//filenamelistingscount = 0;
+//fileanddircount = 0;
+//countformovingdowninfilesbox = 0;
+//scrolldownsinfilesbox = 0;
+//drawingoffilesboxdone = false;
+//ycoordinate = 2;
+//cleanfilesbox();
+//filenamelistings.clear();
+//readfilenames("codeforrefresh");
+//drawfilesbox(0,0,0,1);
+setBackgroundColor(1);
+printacharacterinanyterminallocation(6,10,"┌");
+printacharacterinanyterminallocation(7,10,"│");
+printacharacterinanyterminallocation(8,10,"│");
+printacharacterinanyterminallocation(9,10,"│");
+printacharacterinanyterminallocation(10,10,"│");
+printacharacterinanyterminallocation(11,10,"│");
+printacharacterinanyterminallocation(12,10,"│");
+printacharacterinanyterminallocation(13,10,"│");
+printacharacterinanyterminallocation(14,10,"│");
+printacharacterinanyterminallocation(15,10,"│");
+printacharacterinanyterminallocation(6,11,"─");
+printacharacterinanyterminallocation(6,12,"─");
+printacharacterinanyterminallocation(6,13,"─");
+printacharacterinanyterminallocation(6,14,"─");
+printacharacterinanyterminallocation(6,15,"─");
+printacharacterinanyterminallocation(6,16,"─");
+printacharacterinanyterminallocation(6,17,"─");
+printacharacterinanyterminallocation(6,18,"─");
+printacharacterinanyterminallocation(6,19,"─");
+printacharacterinanyterminallocation(6,20,"─");
+printacharacterinanyterminallocation(6,21,"─");
+printacharacterinanyterminallocation(6,22,"─");
+printacharacterinanyterminallocation(6,23,"─");
+printacharacterinanyterminallocation(6,24,"─");
+printacharacterinanyterminallocation(6,25,"─");
+printacharacterinanyterminallocation(6,26,"─");
+printacharacterinanyterminallocation(6,27,"─");
+printacharacterinanyterminallocation(6,28,"─");
+//printacharacterinanyterminallocation(6,28," ");
+printacharacterinanyterminallocation(6,29,"─");
+printacharacterinanyterminallocation(6,30,"─");
+printacharacterinanyterminallocation(6,31,"─");
+printacharacterinanyterminallocation(6,32,"─");
+printacharacterinanyterminallocation(6,33,"─");
+printacharacterinanyterminallocation(6,34,"─");
+printacharacterinanyterminallocation(6,35,"D");
+printacharacterinanyterminallocation(6,36,"e");
+printacharacterinanyterminallocation(6,37,"l");
+printacharacterinanyterminallocation(6,38,"e");
+printacharacterinanyterminallocation(6,39,"t");
+printacharacterinanyterminallocation(6,40,"e");
+printacharacterinanyterminallocation(6,41," ");
+printacharacterinanyterminallocation(6,42,"f");
+printacharacterinanyterminallocation(6,43,"o");
+printacharacterinanyterminallocation(6,44,"l");
+printacharacterinanyterminallocation(6,45,"d");
+printacharacterinanyterminallocation(6,46,"e");
+printacharacterinanyterminallocation(6,47,"r");
+printacharacterinanyterminallocation(6,48,"?");
+//printacharacterinanyterminallocation(6,47,"?");
+for (int colummn = 49;colummn < 70;colummn++) {
+printacharacterinanyterminallocation(6,colummn,"─");
+}
+printacharacterinanyterminallocation(6,70,"┐");
+printacharacterinanyterminallocation(7,70,"│");
+printacharacterinanyterminallocation(8,70,"│");
+printacharacterinanyterminallocation(9,70,"│");
+printacharacterinanyterminallocation(10,70,"│");
+printacharacterinanyterminallocation(11,70,"│");
+printacharacterinanyterminallocation(12,70,"│");
+printacharacterinanyterminallocation(13,70,"│");
+printacharacterinanyterminallocation(14,70,"│");
+printacharacterinanyterminallocation(15,70,"│");
+printacharacterinanyterminallocation(16,10,"└");
+printacharacterinanyterminallocation(16,70,"┘");
+//std::cout << "The first " << "5" << " characters are: " << filenamelistings[filenamelistingscount].filename.substr(0, 5) << std::endl;
+for (int colummn = 11;colummn < 70;colummn++) {
+printacharacterinanyterminallocation(16,colummn,"─");
+}
+movecursortoanyterminallocation(7,11);
+if (filenamelistings[filenamelistingscount].filename.size() == 10) {
+std::cout << "Are you sure you want to delete the folder " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "?";
+//printacharacterinanyterminallocation(7,63," ");
+//printacharacterinanyterminallocation(7,64," ");
+printacharacterinanyterminallocation(7,65," ");
+printacharacterinanyterminallocation(7,66," ");
+printacharacterinanyterminallocation(7,67," ");
+printacharacterinanyterminallocation(7,68," ");
+printacharacterinanyterminallocation(7,69," ");
+}
+else if (filenamelistings[filenamelistingscount].filename.size() == 9) {
+std::cout << "Are you sure you want to delete the folder " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "?";
+printacharacterinanyterminallocation(7,64," ");
+printacharacterinanyterminallocation(7,65," ");
+printacharacterinanyterminallocation(7,66," ");
+printacharacterinanyterminallocation(7,67," ");
+printacharacterinanyterminallocation(7,68," ");
+printacharacterinanyterminallocation(7,69," ");
+}
+else if (filenamelistings[filenamelistingscount].filename.size() == 8) {
+std::cout << "Are you sure you want to delete the folder " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "?";
+//printacharacterinanyterminallocation(7,," ");
+//printacharacterinanyterminallocation(7,60," ");
+//printacharacterinanyterminallocation(7,61," ");
+//printacharacterinanyterminallocation(7,62," ");
+printacharacterinanyterminallocation(7,63," ");
+printacharacterinanyterminallocation(7,64," ");
+printacharacterinanyterminallocation(7,65," ");
+printacharacterinanyterminallocation(7,66," ");
+printacharacterinanyterminallocation(7,67," ");
+printacharacterinanyterminallocation(7,68," ");
+printacharacterinanyterminallocation(7,69," ");
+}
+else if (filenamelistings[filenamelistingscount].filename.size() == 7) {
+std::cout << "Are you sure you want to delete the folder " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "?";
+putchar('\n');
+//printacharacterinanyterminallocation(7,58," ");
+//putchar('\n');
+//printacharacterinanyterminallocation(7,59," ");
+//putchar('\n');
+//printacharacterinanyterminallocation(7,60," ");
+//putchar('\n');
+//printacharacterinanyterminallocation(7,61," ");
+//putchar('\n');
+printacharacterinanyterminallocation(7,62," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,63," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,64," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,65," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,66," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,67," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,68," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,69," ");
+putchar('\n');
+}
+else if (filenamelistings[filenamelistingscount].filename.size() == 6) {
+std::cout << "Are you sure you want to delete the folder " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "?";
+putchar('\n');
+//printacharacterinanyterminallocation(7,58," ");
+//putchar('\n');
+//printacharacterinanyterminallocation(7,59," ");
+//putchar('\n');
+//printacharacterinanyterminallocation(7,60," ");
+//putchar('\n');
+printacharacterinanyterminallocation(7,61," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,62," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,63," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,64," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,65," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,66," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,67," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,68," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,69," ");
+putchar('\n');
+}
+else if (filenamelistings[filenamelistingscount].filename.size() == 5) {
+std::cout << "Are you sure you want to delete the folder " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "?";
+putchar('\n');
+//printacharacterinanyterminallocation(7,58," ");
+//putchar('\n');
+//printacharacterinanyterminallocation(7,59," ");
+//putchar('\n');
+printacharacterinanyterminallocation(7,60," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,61," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,62," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,63," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,64," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,65," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,66," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,67," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,68," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,69," ");
+putchar('\n');
+}
+else if (filenamelistings[filenamelistingscount].filename.size() == 4) {
+std::cout << "Are you sure you want to delete the folder " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "?";
+putchar('\n');
+//printacharacterinanyterminallocation(7,57," ");
+//putchar('\n');
+//printacharacterinanyterminallocation(7,58," ");
+//putchar('\n');
+printacharacterinanyterminallocation(7,59," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,60," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,61," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,62," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,63," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,64," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,65," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,66," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,67," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,68," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,69," ");
+putchar('\n');
+}
+else if (filenamelistings[filenamelistingscount].filename.size() == 3) {
+std::cout << "Are you sure you want to delete the folder " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "?";
+putchar('\n');
+//printacharacterinanyterminallocation(7,56," ");
+//putchar('\n');
+//printacharacterinanyterminallocation(7,57," ");
+//putchar('\n');
+printacharacterinanyterminallocation(7,58," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,59," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,60," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,61," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,62," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,63," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,64," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,65," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,66," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,67," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,68," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,69," ");
+putchar('\n');
+}
+else if (filenamelistings[filenamelistingscount].filename.size() == 2) {
+std::cout << "Are you sure you want to delete the folder " << filenamelistings[filenamelistingscount].filename.substr(0, 2) << "?";
+putchar('\n');
+//printacharacterinanyterminallocation(7,55," ");
+//putchar('\n');
+//printacharacterinanyterminallocation(7,56," ");
+//putchar('\n');
+printacharacterinanyterminallocation(7,57," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,58," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,59," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,60," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,61," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,62," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,63," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,64," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,65," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,66," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,67," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,68," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,69," ");
+putchar('\n');
+}
+else if (filenamelistings[filenamelistingscount].filename.size() == 1) {
+std::cout << "Are you sure you want to delete the folder " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "?";
+putchar('\n');
+//printacharacterinanyterminallocation(7,54," ");
+//putchar('\n');
+//printacharacterinanyterminallocation(7,55," ");
+//putchar('\n');
+printacharacterinanyterminallocation(7,56," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,57," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,58," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,59," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,60," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,61," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,62," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,63," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,64," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,65," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,66," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,67," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,68," ");
+putchar('\n');
+printacharacterinanyterminallocation(7,69," ");
+putchar('\n');
+}
+else {
+std::cout << "Are you sure you want to delete the folder " << filenamelistings[filenamelistingscount].filename.substr(0, 10) << "..." << "?" << "  ";
+}
+movecursortoanyterminallocation(8,11);
+std::cout << "Keep in mind that this is permanent and can't be easily";
+printacharacterinanyterminallocation(8,66," ");
+printacharacterinanyterminallocation(8,67," ");
+printacharacterinanyterminallocation(8,68," ");
+printacharacterinanyterminallocation(8,69," ");
+movecursortoanyterminallocation(9,11);
+std::cout << "undone (no recycle bin in this file manager)               ";
+movecursortoanyterminallocation(10,11);
+std::cout << "However the folder and its data will likely still be       ";
+movecursortoanyterminallocation(11,11);
+std::cout << "recoverable later with recovery software.So if you want a  ";
+movecursortoanyterminallocation(12,11);
+std::cout << "secure erasure use a different tool that does a secure     ";
+//std::cout << "use a different tool that does a secure erasure (such as   ";
+movecursortoanyterminallocation(13,11);
+std::cout << "erasure instead of just deleting the folder through here or";
+movecursortoanyterminallocation(14,11);
+std::cout << "any other file manager.                                    ";
+movecursortoanyterminallocation(15,11);
+std::cout << "                   ";
+movecursortoanyterminallocation(15,11);
+std::cout << "                   ";
+movecursortoanyterminallocation(15,37);
+std::cout << "                                 ";
+printacharacterinanyterminallocation(15,30,"Y");
+printacharacterinanyterminallocation(15,31,"e");
+printacharacterinanyterminallocation(15,32,"s");
+printacharacterinanyterminallocation(15,33," ");
+printacharacterinanyterminallocation(15,34," ");
+printacharacterinanyterminallocation(15,35," ");
+printacharacterinanyterminallocation(15,36," ");
+setBackgroundColor(3);
+printacharacterinanyterminallocation(15,37,"N");
+printacharacterinanyterminallocation(15,38,"o");
+setBackgroundColor(1);
+//std::cout << "The first " << "5" << " characters are: " << filenamelistings[filenamelistingscount].filename.substr(0, 5) << std::endl;
+putchar('\n');
+//printacharacterinanyterminallocation(6,70,"┌");
+}
+//else if (toupper(answer) == 'N') {
+//std::cout << "Deletion canceled.The directory was not deleted" << std::endl;
+//}
+//}

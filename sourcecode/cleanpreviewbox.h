@@ -1,0 +1,6 @@
+#ifndef CLEANPREVIEWBOX_H_INCLUDED
+#define CLEANPREVIEWBOX_H_INCLUDED
+
+int cleanpreviewbox();
+
+#endif // CLEANPREVIEWBOX_H_INCLUDED

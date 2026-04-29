@@ -1,0 +1,7 @@
+#ifndef SHOWCOPYFILEANDDIRECTORYDIALOGS_H_INCLUDED
+#define SHOWCOPYFILEANDDIRECTORYDIALOGS_H_INCLUDED
+
+int showcopyfileoverwritedialog();
+int showcopydirectoryoverwritedialog();
+
+#endif // SHOWCOPYFILEANDDIRECTORYDIALOGS_H_INCLUDED

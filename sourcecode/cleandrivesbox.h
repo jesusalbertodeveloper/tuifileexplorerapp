@@ -1,0 +1,6 @@
+#ifndef CLEANDRIVESBOX_H_INCLUDED
+#define CLEANDRIVESBOX_H_INCLUDED
+
+int cleandrivesbox();
+
+#endif // CLEANDRIVESBOX_H_INCLUDED

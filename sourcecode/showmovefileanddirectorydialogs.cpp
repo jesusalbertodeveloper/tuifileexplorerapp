@@ -1,0 +1,36 @@
+#include <iostream>
+#include <stdio.h>
+#include <vector>
+#include <dirent.h>
+#include <cstring>
+#include <sys/ioctl.h>
+#include <unistd.h>
+#include <string>
+#include <termios.h>
+#include <linux/sockios.h>
+#include <linux/input.h>
+#include <linux/inotify.h>
+#include <cstdlib>
+#include <time.h>
+#include <fstream>
+#include <filesystem>
+#include <csignal>
+#define FIONREAD	0x541B
+#include <main.h>
+#include <displayfiles.h>
+#include <filenamehighlight.h>
+#include <drawdrivesbox.h>
+#include <drawfilesbox.h>
+#include <drawpreviewbox.h>
+#include <cleandrivesbox.h>
+//#include <cleanfilesbox.h>
+#include <menubar.h>
+#include <drawscrollbarfordrivesbox.h>
+#include <cleanscrollbarfordrivesbox.h>
+#include <drawscrollbarforfilesbox.h>
+#include <cleanscrollbarforfilesbox.h>
+#include <getmounteddrives.h>
+#include <getfiledata.h>
+#include <cleanfilesbox.h>
+#include <cleanpreviewbox.h>
+
