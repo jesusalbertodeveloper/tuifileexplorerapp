@@ -37,3 +37,4 @@ make  # Or your build command
 - **Enter**: Open/edit text in nano
 - **Highlight**: Auto-preview text/ZIP in bottom box
 - **File ops**: Use menu/hotkeys (copy/move/delete/rename/mkdir)
+  Made with love in Linux Mint 21.3
