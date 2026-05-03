@@ -40,12 +40,12 @@ make  # Or your build command
 ## 🤝 Contributing
 1. Fork & clone
 2. Create feature branch
-3. PR to `main`
+3. Submit a pull request to `main`
 
 Issues welcome!
 
 ## 📝 License
-MIT
+MIT(view this license in the LICENSE file of this repository)
 
 ## 🐧 Built On
 **Developed and tested on Linux Mint 21.3 Cinnamon**  
