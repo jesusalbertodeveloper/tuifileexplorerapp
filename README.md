@@ -2,8 +2,9 @@
 
 **Terminal file manager with live text & ZIP previews**
 
-[![Linux](https://img.shields.io/badge/Linux-amd64-brightgreen?logo=linux&logoColor=white)](https://github.com/jesusalbertodeveloper/tuifileexplorer)
-[![Stars](https://img.shields.io/github/stars/jesusalbertodeveloper/tuifileexplorer?style=social)](https://github.com/jesusalbertodeveloper/tuifileexplorer)
+[![Linux](https://img.shields.io/badge/Linux-amd64-brightgreen?logo=linux&logoColor=white)](https://github.com/jesusalbertodeveloper/tuifileexplorerapp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Stars](https://img.shields.io/github/stars/jesusalbertodeveloper/tuifileexplorerapp?style=social)](https://github.com/jesusalbertodeveloper/tuifileexplorerapp)
 
 A lightweight **TUI file explorer for Linux** built in C++. Navigate, manage files, and **preview text/ZIP contents instantly** in the bottom panel – just highlight to see!
 
@@ -45,7 +46,7 @@ make  # Or your build command
 Issues welcome!
 
 ## 📝 License
-MIT(view this license in the LICENSE file of this repository)
+[MIT License](LICENSE)
 
 ## 🐧 Built On
 **Developed and tested on Linux Mint 21.3 Cinnamon**  
