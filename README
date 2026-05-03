@@ -1,8 +1,39 @@
-This is a Terminal User Interface(TUI) file explorer app for Linux that allows you to view and manage files from your terminal.
-It can do basic file management operations(copy,move,delete,rename,create new folder,etc)
-This file explorer has an unique feature:Previewing the content of text files and zip files on a box in the bottom of the screen without needing to open these files
-The content can be previewed just by having the file highlighted in the app so no need to open but it can open text files in nano when you press Enter in the file and you can return to the file explorer by closing nano with Ctrl+X.This will give you the option to save any changes to the file before returning.
-The left pane will show you your storage partitions in all connected storage devices and the right one will show you your files.Use the arrow keys on your keyboard to move between them.
-In the sourcecode folder is the app's source code in C++ while in the compiledbinary is a compiled Linux amd64(x64) binary.
-NOTE:In Linux x64 is called amd64 even if you have an Intel processor
-Made in Linux Mint 21.3 Cinnamon
+# TUI File Explorer for Linux
+
+**Terminal file manager with live text & ZIP previews – no mouse needed**
+
+[![Linux](https://img.shields.io/badge/Linux-amd64-brightgreen?logo=linux&logoColor=white)](https://github.com/jesusalbertodeveloper/tuifileexplorer)
+[![Stars](https://img.shields.io/github/stars/jesusalbertodeveloper/tuifileexplorer?style=social)](https://github.com/jesusalbertodeveloper/tuifileexplorer)
+
+A lightweight **TUI file explorer for Linux** built in C++. Navigate, manage files, and **preview text/ZIP contents instantly** in the bottom panel – just highlight to see!
+
+## ✨ Key Features
+- **Live previews**: Text files & ZIP contents display without opening
+- **Dual-pane UI**: Left pane for storage devices/partitions, right for files/folders
+- **Full file operations**: Copy, move, delete, rename, create folders
+- **Nano editor integration**: Press Enter to edit → Ctrl+X returns (save prompt)
+- **Arrow key navigation**: Smooth terminal controls
+- **Prebuilt binary**: AMD64 Linux (Intel/AMD) – tested on Linux Mint 21.3 Cinnamon
+
+Perfect **Linux terminal file manager** alternative to ranger/nnn with unique ZIP preview.
+
+## 🚀 Quick Install & Run
+```bash
+# Download prebuilt binary
+wget https://github.com/jesusalbertodeveloper/tuifileexplorer/releases/latest/download/tuifileexplorer_amd64
+chmod +x tuifileexplorer_amd64
+./tuifileexplorer_amd64
+```
+
+**Build from source** (C++):
+```bash
+cd sourcecode
+make  # Or your build command
+```
+
+## 📱 Controls & Usage
+- **← → Arrow keys**: Switch panes (left: devices, right: files)
+- **↑ ↓**: Navigate files/folders
+- **Enter**: Open/edit text in nano
+- **Highlight**: Auto-preview text/ZIP in bottom box
+- **File ops**: Use menu/hotkeys (copy/move/delete/rename/mkdir)
