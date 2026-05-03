@@ -1,6 +1,6 @@
 # TUI File Explorer for Linux
 
-**Terminal file manager with live text & ZIP previews – no mouse needed**
+**Terminal file manager with live text & ZIP previews**
 
 [![Linux](https://img.shields.io/badge/Linux-amd64-brightgreen?logo=linux&logoColor=white)](https://github.com/jesusalbertodeveloper/tuifileexplorer)
 [![Stars](https://img.shields.io/github/stars/jesusalbertodeveloper/tuifileexplorer?style=social)](https://github.com/jesusalbertodeveloper/tuifileexplorer)
