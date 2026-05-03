@@ -37,4 +37,18 @@ make  # Or your build command
 - **Enter**: Open/edit text in nano
 - **Highlight**: Auto-preview text/ZIP in bottom box
 - **File ops**: Use menu/hotkeys (copy/move/delete/rename/mkdir)
-  Made with love in Linux Mint 21.3
+## 🤝 Contributing
+1. Fork & clone
+2. Create feature branch
+3. PR to `main`
+
+Issues welcome!
+
+## 📝 License
+MIT
+
+## 🐧 Built On
+**Developed and tested on Linux Mint 21.3 Cinnamon**  
+Works on Ubuntu, Debian derivatives, and most AMD64 Linux distributions.
+
+**Made with ❤️ on Linux Mint 21.3 | Stars/forks boost visibility!**
