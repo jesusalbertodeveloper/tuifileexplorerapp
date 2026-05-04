@@ -7,6 +7,8 @@
 [![Stars](https://img.shields.io/github/stars/jesusalbertodeveloper/tuifileexplorerapp?style=social)](https://github.com/jesusalbertodeveloper/tuifileexplorerapp)
 
 A lightweight **TUI file explorer for Linux** built in C++. Navigate, manage files, and **preview text/ZIP contents instantly** in the bottom panel – just highlight to see!
+## 📁 Demo
+![demoofmyapp](appdemo.png)
 
 ## ✨ Key Features
 - **Live previews**: Text files & ZIP contents display without opening
